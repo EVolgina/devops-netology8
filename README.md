@@ -13,12 +13,12 @@ cd is a shell builtin
 ps (processes status — статус процессов) 
 Команда pstree отображает запущенные процессы в виде древовидной структуры
 Для каждого процесса создается каталог по пути /proc/<PID>, в котором создаются папки и файлы с описанием процесса.
-Символьная ссылка на исполняемый файл, запустивший процесс: ll /proc/<PID>/exe
-![выполнение]https://github.com/EVolgina/devops-netology8/blob/main/ps3.JPG
-vagrant@vagrant:/$ ps -e --forest | less
-![psforest]https://github.com/EVolgina/devops-netology8/blob/main/psforest.png
-По идентефикатору процесса, в нашем случае 1
-![ps4]https://github.com/EVolgina/devops-netology8/blob/main/ps4.png
+Символьная ссылка на исполняемый файл, запустивший процесс: ll /proc/<PID>/exe\
+![Установка](https://github.com/EVolgina/devops-netology8/blob/main/ps3.JPG)
+vagrant@vagrant:/$ ps -e --forest | less\
+![Установка](https://github.com/EVolgina/devops-netology8/blob/main/psforest.png)
+По идентефикатору процесса, в нашем случае 1\
+![ps4](https://github.com/EVolgina/devops-netology8/blob/main/ps4.png)
 Видно что всего 1 процесс соответствует идентификатору
 
 # 4.Как будет выглядеть команда, которая перенаправит вывод stderr ls на другую сессию терминала?
@@ -29,8 +29,8 @@ vagrant@vagrant:/$ ps -e --forest | less
 
 # 5.Получится ли одновременно передать команде файл на stdin и вывести ее stdout в другой файл? Приведите работающий пример.
   ответ: утилиты которые умеют принимать данные из stdin: cat, grep, less, tail, head, wc\
-  пример:
-  ![5ls] https://github.com/EVolgina/devops-netology8/blob/main/5ls.PNG
+  пример: Найдем все файлы , содержащие букву “l”\
+  ![5ls](https://github.com/EVolgina/devops-netology8/blob/main/5ls.PNG)
 
 # 6.Получится ли, находясь в графическом режиме, вывести данные из PTY в какой-либо из эмуляторов TTY? Сможете ли вы наблюдать выводимые данные?
   Ответ: да\
@@ -39,15 +39,15 @@ vagrant@vagrant:/$ ps -e --forest | less
 # 7.Выполните команду bash 5>&1. К чему она приведет? Что будет, если вы выполните echo netology > /proc/$$/fd/5? Почему так происходит?
   ответ: bash 5>&1 запустит экземпляр bash с дополнительным фаловым дескриптором "5" и перенаправит его на файловый дескриптор 1 (stdout)\
   echo netology > /proc/$$/fd/5 выведет в терминал слово "netology"
-  ![7] https://github.com/EVolgina/devops-netology8/blob/main/7.png
+  ![7] (https://github.com/EVolgina/devops-netology8/blob/main/7.png)
   Это произойдёт потому что echo отправляет netology в файловый дескриптор с номером 5 текущего shell (подсистема /proc содержит информацию
   о запущенных  процессах по их PID, $$ - подставит PID текущего shell)
 
 # 8.Получится ли в качестве входного потока для pipe использовать только stderr команды, не потеряв при этом отображение stdout на pty?
 Напоминаем: по умолчанию через pipe передается только stdout команды слева от | на stdin команды справа. Это можно сделать,
 поменяв стандартные потоки местами через промежуточный новый дескриптор, который вы научились создавать в предыдущем вопросе.
-ответ: ls % 5>&2 2>&1 1>&5 |grep -c 'cannot'
-  ![8]https://github.com/EVolgina/devops-netology8/blob/main/8.png
+ответ: ls % 5>&2 2>&1 1>&5 |grep -c 'cannot'\
+  ![8](https://github.com/EVolgina/devops-netology8/blob/main/8.png)
 # 9.Что выведет команда cat /proc/$$/environ? Как еще можно получить аналогичный по содержанию вывод?
  ответ:команда выводит переменные среды\
  аналогичные команды: printenv,env 
@@ -61,7 +61,7 @@ vagrant@vagrant:/$ ps -e --forest | less
 
 # 11.Узнайте, какую наиболее старшую версию набора инструкций SSE поддерживает ваш процессор с помощью /proc/cpuinfo.
   ответ: sse4
-  ![11]https://github.com/EVolgina/devops-netology8/blob/main/11.png
+  ![11](https://github.com/EVolgina/devops-netology8/blob/main/11.png)
 
 # 12.При открытии нового окна терминала и vagrant ssh создается новая сессия и выделяется pty.
 Это можно подтвердить командой tty, которая упоминалась в лекции 3.2.\
