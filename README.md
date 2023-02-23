@@ -44,7 +44,8 @@ find /etc 2>/dev/pts/0 | grep xxxx >/dev/pts/1
   echo 'new message' > /dev/tty1 (echo от root)
   
 # 7.Выполните команду bash 5>&1. К чему она приведет? Что будет, если вы выполните echo netology > /proc/$$/fd/5? Почему так происходит?
-  ответ: bash 5>&1 запустит экземпляр bash с дополнительным фаловым дескриптором "5" и перенаправит его на файловый дескриптор 1 (stdout)\
+  ответ: bash 5>&1 запустит экземпляр bash с дополнительным фаловым дескриптором "5" и перенаправит его на файловый\
+  дескриптор 1 (stdout)\
   echo netology > /proc/$$/fd/5 выведет в терминал слово "netology"
 	
   ![7](https://github.com/EVolgina/devops-netology8/blob/main/7.png)
